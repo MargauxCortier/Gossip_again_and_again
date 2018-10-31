@@ -1,0 +1,17 @@
+
+<div class="center jumbotron">
+  <h1>Bienvenue !</h1>
+  <h3>
+    Enregistres toi
+  </h3>
+  <%= link_to "Enregistre-toi !", '#', class: "btn btn-lg btn-primary" %>
+
+  </br>
+   <%= form_for @user, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+
+     <p>Nom</p><%= f.text_field :name %><br />
+ </br>
+     <%= f.submit "submit" %>
+   <% end %>
+
+</div>
