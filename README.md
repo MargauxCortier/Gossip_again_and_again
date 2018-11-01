@@ -1,6 +1,6 @@
 # Jeudi 1 
 
-## Voici les liens vers tous nos exos :
+## Voici le lien vers notre exo :
 
 URL https://gossip-shmossip.herokuapp.com/
 
