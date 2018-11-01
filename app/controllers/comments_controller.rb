@@ -32,7 +32,15 @@ class CommentsController < ApplicationController
   redirect_to gossip_path(@gossip)
 end
     #(params[:comment].permit(:anonymous_commentor, :content))
-   
+  
+
+def destroy
+   @gossip = Gossip.find(params[:gossip_id])
+   @comment = @gossip.comments.find(params[:id])
+   @comment.destroy
+   redirect_to gossip_path(@gossip)
+ end
+
   private
 
   def comment_params
@@ -57,14 +65,14 @@ end
 
   # DELETE /comments/1
   # DELETE /comments/1.json
-  def destroy
-    @comment.destroy
-    respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+ 
 
+def destroy
+   @gossip = Gossip.find(params[:article_id])
+   @comment = @gossip.comments.find(params[:id])
+   @comment.destroy
+   redirect_to gossip_path(@gossip)
+ end
   
 
   

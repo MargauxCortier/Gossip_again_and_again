@@ -56,21 +56,15 @@ def edit
   end
 
 
-  # def destroy
-  #    @gossip = Gossip.find(params[:id])
-  #    @gossip.delete
-  #    redirect_to gossips_path , :notice => "Your patient has been deleted"
-  # end
+   def destroy
+      @gossip = Gossip.find(params[:id])
+      @gossip.delete
+      redirect_to '/' , :notice => "Your gossip has been deleted"
+   end
   # DELETE /gossips/1
   # DELETE /gossips/1.json
-  def destroy
-    @gossip = Gossip.find(params[:id])
-    @gossip.delete
-    respond_to do |format|
-      format.html { redirect_to gossips_url, notice: 'Gossip was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+  
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -38,12 +38,18 @@
 <% end %>
 
 
+
 </form>
 
     <% @gossip.comments.each do |comment| %>
       <tr>
         <td><%= comment.content %></td>
         <td><%= comment.anonymous_commentor %></td>
+        <p>
+  <%= link_to 'Destroy Comment', [@comment.gossip, @comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
         
       </tr>
     <% end %>
