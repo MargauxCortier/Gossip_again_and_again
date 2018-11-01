@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  #before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  #before_action :find_gossip
 
   # GET /comments
   # GET /comments.json
@@ -26,26 +27,18 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
    
-    @gossip = Gossip.find(params[:gossip_id])
-    @comment = @gossips.comments.create
-
+  @gossip = Gossip.find(params[:gossip_id])
+  @comment = @gossip.comments.create(comment_params)
+  redirect_to gossip_path(@gossip)
+end
     #(params[:comment].permit(:anonymous_commentor, :content))
-    
+   
+  private
 
-    @comment.anonymous_commentor = params["anonymous_commentor"]
-    @comment.content = params["content"]
-    
-    @comment.save
+  def comment_params
+  params.require(:comment).permit(:content, :anonymous_commentor)
+  end
 
-    respond_to do |format|
-      if @comment.save
-        format.html { redirect_to @comment, notice: 'Vla ton comment' }
-        format.json { render :show, status: :created, location: @comment }
-      else
-        format.html { render :new }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PATCH/PUT /comments/1
@@ -72,14 +65,18 @@ class CommentsController < ApplicationController
     end
   end
 
-  private
+  
+
+  
+      
+
     # Use callbacks to share common setup or constraints between actions.
-    def set_comment
-      @comment = Comment.find(params[:id])
-    end
+    #def set_comment
+    #  @comment = Comment.find(params[:id])
+    #end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     # def comment_params
     #   params.require(:comment).permit(:content, :anonymous_commentor, :gossip_id)
     # end
-end
+

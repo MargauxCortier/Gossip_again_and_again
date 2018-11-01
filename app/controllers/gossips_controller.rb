@@ -1,5 +1,5 @@
 class GossipsController < ApplicationController
-  before_action :set_gossip, only: [:show, :edit, :update, :destroy]
+  #before_action :set_gossip, only: [:show, :edit, :update, :destroy]
 
   # GET /gossips
   # GET /gossips.json
@@ -10,8 +10,8 @@ class GossipsController < ApplicationController
   # GET /gossips/1
   # GET /gossips/1.json
   def show
-    @gossips = Gossip.find(params[:id])
-    @comment = Comment.new
+    @gossip = Gossip.find(params[:id])
+    @comment = @gossip.comments.new
     @comments = Comment.all
   end
 
@@ -80,7 +80,7 @@ def edit
 
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def gossip_params
-      params.require(:gossip).permit(:anonymous_gossiper, :content)
-    end
+   def gossip_params
+     params.require(:gossip).permit(:anonymous_gossiper, :content, :id)
+   end
 end

@@ -19,30 +19,32 @@
 
 <h1>New Comment</h1>
 
-<form action ='/gossips/:id' method="post">
- <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
-
-  <p>ton ptit nom secret</p>
-  <input type="string" name="anonymous_commentor">
+<%= form_with(model: [@gossip, @gossip.comments.build ], local: true) do |form| %>
   
-  <br />
-  <p>Ton fucking commentaire</p>
-  <input type="string" name="content">
 
-  <input type="submit" name='Envoyer'>
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
 
+  <div class="field">
+    <%= form.label :anonymous_commentor %>
+    <%= form.text_field :anonymous_commentor %>
+  </div>
 
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
 
 
 </form>
 
-    <% @comments.each do |comment| %>
+    <% @gossip.comments.each do |comment| %>
       <tr>
         <td><%= comment.content %></td>
         <td><%= comment.anonymous_commentor %></td>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
       </tr>
     <% end %>
   </tbody>
