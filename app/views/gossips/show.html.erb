@@ -46,9 +46,12 @@
         <td><%= comment.content %></td>
         <td><%= comment.anonymous_commentor %></td>
         <p>
-  <%= link_to 'Destroy Comment', [@comment.gossip, @comment],
+         
+         
+   <td> <%= link_to 'Destroy Comment', [comment.gossip, comment],
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
+</td>
 </p>
         
       </tr>

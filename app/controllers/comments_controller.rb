@@ -31,23 +31,26 @@ class CommentsController < ApplicationController
   @comment = @gossip.comments.create(comment_params)
   redirect_to gossip_path(@gossip)
 end
-    #(params[:comment].permit(:anonymous_commentor, :content))
+    
+  def comment_params
+    params.require(:comment).permit(:anonymous_commentor, :content)
   
+end
 
 def destroy
-   @gossip = Gossip.find(params[:gossip_id])
-   @comment = @gossip.comments.find(params[:id])
-   @comment.destroy
-   redirect_to gossip_path(@gossip)
+      @comment = Comment.find(params[:id])
+      @comment.delete
+      redirect_to '/'
  end
 
-  private
+  
 
-  def comment_params
-  params.require(:comment).permit(:content, :anonymous_commentor)
+  #def params_comment
+  #params.require(:comment).permit(:content, :anonymous_commentor, :id)
   end
+ 
 
-  end
+  
 
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
@@ -67,12 +70,7 @@ def destroy
   # DELETE /comments/1.json
  
 
-def destroy
-   @gossip = Gossip.find(params[:article_id])
-   @comment = @gossip.comments.find(params[:id])
-   @comment.destroy
-   redirect_to gossip_path(@gossip)
- end
+
   
 
   
