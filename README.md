@@ -1,24 +1,26 @@
-# README
+# Jeudi 1 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Voici les liens vers tous nos exos :
 
-Things you may want to cover:
+URL https://gossip-shmossip.herokuapp.com/
 
-* Ruby version
+### Une fois pull
+```
+bundle install
+bundle exec rake db:create
+bundle exec rake db:migrate
+bundle exec rails server
+```
 
-* System dependencies
+## Et voici notre belle équipe :frog: :
 
-* Configuration
+Noms | Pseudo Slack
+------------ | -------------
+Pauline Labaisse | @Pauline Labaisse :baby_chick:
+Margaux Cortier | @Margaux Crt :penguin:
+Irina Penkovskaia | @Ira P. :octocat:
+Max de Ponfilly | @Max :tiger:
+Hélène Martin | @Helene Cbm :panda_face:
+Victor Gabella | @Chartie :bear:
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+*Enjoy guys !*
