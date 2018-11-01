@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -51,8 +50,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
   def destroy
     @user.destroy
     respond_to do |format|
@@ -62,13 +59,26 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :email, :password)
+    end
+
+    def registration
+      @user = User.find(params[:id])
+    end
+
+    def check
+        @current_user = User.where(name: params[:name], password: params[:password]).first
+        if @current_user
+          flash[:info] = "Bienvenue #{@current_user.name} !"
+          redirect_to "/"
+        else
+          flash[:info] = "Échec de la connexion"
+          redirect_to "/users/registration"
+        end
     end
 end

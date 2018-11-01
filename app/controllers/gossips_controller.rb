@@ -21,7 +21,7 @@ class GossipsController < ApplicationController
   end
 
   # GET /gossips/1/edit
-  
+
 def edit
   end
 
@@ -63,7 +63,7 @@ def edit
    end
   # DELETE /gossips/1
   # DELETE /gossips/1.json
-  
+
 
 
   private
