@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+
+<tbody>
+<p>
+  <strong>Anonymous gossiper:</strong>
+  <%= @gossip.anonymous_gossiper %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @gossip.content %>
+</p>
+
+<%= link_to 'Edit', edit_gossip_path(@gossip) %> |
+<%= link_to 'Back', gossips_path %>
+
+
+
+<h1>New Comment</h1>
+
+<form action ='/gossips/:id' method="post">
+ <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
+
+  <p>ton ptit nom secret</p>
+  <input type="string" name="anonymous_commentor">
+  
+  <br />
+  <p>Ton fucking commentaire</p>
+  <input type="string" name="content">
+
+  <input type="submit" name='Envoyer'>
+
+
+
+
+</form>
+
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.content %></td>
+        <td><%= comment.anonymous_commentor %></td>
+        <td><%= link_to 'Show', comment %></td>
+        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+
+
+
