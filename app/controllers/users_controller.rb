@@ -58,6 +58,18 @@ class UsersController < ApplicationController
     end
   end
 
+    def check
+        @current_user = User.where(name: params[:name], password: params[:password]).first
+        if @current_user
+          flash[:info] = "Bienvenue #{@current_user.name} !"
+          redirect_to "/"
+        else
+          flash[:info] = "Échec de la connexion"
+          redirect_to "/users/registration"
+        end
+    end
+
+    
   private
     def set_user
       @user = User.find(params[:id])
@@ -71,14 +83,5 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    def check
-        @current_user = User.where(name: params[:name], password: params[:password]).first
-        if @current_user
-          flash[:info] = "Bienvenue #{@current_user.name} !"
-          redirect_to "/"
-        else
-          flash[:info] = "Échec de la connexion"
-          redirect_to "/users/registration"
-        end
-    end
+
 end

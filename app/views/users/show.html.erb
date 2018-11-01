@@ -1,9 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<h1>Connexion</h1>
+<a href="/">Retourner à l'accueil</a>
+<%= form_tag "/users/registration", method: :post do %>
+  <input type="text" name="name" />
+  <input type="password" name="password" />
+  <input type="submit" value="Se connecter" />
+<% end %>
