@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <div class="mx-auto"style="width: 500px">
 <tbody >
 <p>
@@ -22,15 +20,14 @@
 
 <%= form_with(model: [@gossip, @gossip.comments.build ], local: true) do |form| %>
   
-
   <div class="field">
-    <%= form.label :'Comment :'  %>
-    <%= form.text_field :content, style: "border-radius: 0.2em; width: 400px" %>
+    <%= form.label :'Author :' %>
+    <%= form.text_field :anonymous_commentor %>
   </div>
 
   <div class="field">
-    <%= form.label :'Author :' %>
-    <%= form.text_field :anonymous_commentor, style: "border-radius: 0.2em;" %>
+    <%= form.label :'Comment :'  %>
+    <%= form.text_field :content, style: "width: 400px" %>
   </div>
 
   <div class="actions" style="display: flex; justify-content: center;">
@@ -39,20 +36,20 @@
 <% end %>
 
 
-
 </form>
      <td> Nombre de commentaires : <%= @gossip.comments.count %></td>
    </br>
     <% @gossip.comments.each do |comment| %>
       <tr>
-
+        </br>
         <td><%= comment.content %></td>
+
         <td><%= comment.anonymous_commentor %></td>
          
          
    <td> <%= link_to 'Destroy Comment', [comment.gossip, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
   </td>
-        
+ 
       </tr>
     <% end %>
   </tbody>
