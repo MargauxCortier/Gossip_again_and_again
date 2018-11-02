@@ -6,12 +6,12 @@
 
 <h1 style="margin-bottom: 1em">Gossips</h1>
 
-<table style="width: 500px; margin-left: 100px">
+<table style="width: auto; margin-left: 100px">
   <thead>
     <tr>
-      <th style="padding-left: em">Comments</th>
-      <th style="padding-left: em">Author</th>
-      <th style="padding-left: em">Content</th>
+      <th style="padding: 1em">Comments</th>
+      <th style="padding: 1em">Author</th>
+      <th style="padding: 1em">Content</th>
       <th colspan="4"></th>
     </tr>
   </thead>
@@ -21,7 +21,7 @@
       <tr>
         <td style="padding-left: 1em"><%= gossip.comments.count %></td>
         <td style="padding-left: 1em"><%= gossip.anonymous_gossiper %></td>
-        <td style="padding: 1em"><%= gossip.content %></td>
+        <td style="padding-left: 1em"><%= gossip.content %></td>
         <td><%= link_to 'Show', gossip, class: "btn btn-outline-info btn-sm" %></td>
         <td><%= link_to 'Edit', edit_gossip_path(gossip), class: "btn btn-outline-warning btn-sm" %></td>
         <td><%= button_to 'Destroy', gossip, method: :delete, data: {confirm: '!!!!! Supprimez les commentaires du gossip avant de supprimer le gossip'}, class: "btn btn-outline-danger btn-sm"  %></td>
