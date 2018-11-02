@@ -1,9 +1,19 @@
 
-<div class="center jumbotron">
-  <h1>Bienvenue !</h1>
-  <h3>
-    Ici, tu peux retrouver les moussaillons 🎓
-  </h3>
-  <%= link_to "Enregistre-toi !", users_path, class: "btn btn-lg btn-primary" %>
-  <%= link_to "Log in!", users_registration_path, class: "btn btn-lg btn-primary" %>
+<html>
+
+
+<div  class="center jumbotron">
+	  <div id="home" class="mx-auto" style="width: 600px;">
+		  <h1>Bienvenue !</h1>
+		  <h3>
+		    Ici, tu peux retrouver les moussaillons 🎓
+		  </h3>
+		</br>
+	  </div>
+	  <div style="text-align: center">
+		  <a id="homebtn1" class="btn btn-lg btn-success" href="/users/new" style="width: 300px;">Enregistre - toi !</a>
+		  <a id="homebtn2"class="btn btn-lg btn-success" href="/users/registration" style="width: 300px;">Connecte - toi !</a>
+	</div>
 </div>
+
+</html>

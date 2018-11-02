@@ -59,7 +59,7 @@ def edit
    def destroy
       @gossip = Gossip.find(params[:id])
       @gossip.delete
-      redirect_to '/' , :notice => "Your gossip has been deleted"
+      redirect_to '/gossips' , :notice => "Your gossip has been deleted"
    end
   # DELETE /gossips/1
   # DELETE /gossips/1.json

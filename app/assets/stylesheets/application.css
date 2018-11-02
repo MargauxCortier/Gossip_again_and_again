@@ -15,6 +15,8 @@
  */
 @import "bootstrap";
 
-body {
-    margin-top: 50px !important;
+
+body,h1,h2,h3,h4,h5,a,p{
+	font-family: Futura;
+
 }

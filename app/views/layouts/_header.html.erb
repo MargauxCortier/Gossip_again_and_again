@@ -1,11 +1,8 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Accueil",   '/' %></li>
-        <li><%= link_to "Index des gossips", gossips_path %></li>
-        <li><%= link_to "Nouveau gossip", new_gossip_path %></li>
-      </ul>
+<header>
+    <nav class="navbar navbar-light" style="background-color: #aef88e; justify-content: space-around;">
+    	<a class="navbar-brand" href="/">Accueil</a>
+    	<a class="navbar-brand" href="/gossips">Les Gossips</a>
+    	<a class="navbar-brand" href="/gossips/new">Nouveau Gossip</a>
     </nav>
   </div>
 </header>
