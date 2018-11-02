@@ -1,38 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-
-<tbody>
+<div class="mx-auto"style="width: 500px">
+<tbody >
 <p>
-  <strong>Anonymous gossiper:</strong>
+  <div style="display: flex; justify-content: space-around;">
+  <%= link_to 'Edit', edit_gossip_path(@gossip), class: "btn btn-outline-warning", style: 'width: 100px; margin-left: 1em; margin-bottom: 0.5em' %>
+<%= link_to 'Back', gossips_path, class: "btn btn-outline-dark", style: 'width: 100px; margin-left: 1em; margin-bottom: 0.5em'%>
+</div>
+  <strong>Author :</strong>
   <%= @gossip.anonymous_gossiper %>
 </p>
 
 <p>
-  <strong>Content:</strong>
+  <strong>Content :</strong>
   <%= @gossip.content %>
 </p>
 
-<%= link_to 'Edit', edit_gossip_path(@gossip) %> |
-<%= link_to 'Back', gossips_path %>
 
 
 
-<h1>New Comment</h1>
 
 <%= form_with(model: [@gossip, @gossip.comments.build ], local: true) do |form| %>
   
 
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
+    <%= form.label :'Comment :'  %>
+    <%= form.text_field :content, style: "border-radius: 0.2em; width: 400px" %>
   </div>
 
   <div class="field">
-    <%= form.label :anonymous_commentor %>
-    <%= form.text_field :anonymous_commentor %>
+    <%= form.label :'Author :' %>
+    <%= form.text_field :anonymous_commentor, style: "border-radius: 0.2em;" %>
   </div>
 
-  <div class="actions">
+  <div class="actions" style="display: flex; justify-content: center;">
     <%= form.submit %>
   </div>
 <% end %>
@@ -40,24 +41,21 @@
 
 
 </form>
-
+     <td> Nombre de commentaires : <%= @gossip.comments.count %></td>
+   </br>
     <% @gossip.comments.each do |comment| %>
       <tr>
+
         <td><%= comment.content %></td>
         <td><%= comment.anonymous_commentor %></td>
-        <p>
          
          
-   <td> <%= link_to 'Destroy Comment', [comment.gossip, comment],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-</td>
-</p>
+   <td> <%= link_to 'Destroy Comment', [comment.gossip, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+  </td>
         
       </tr>
     <% end %>
   </tbody>
-
-
+</div>
 
 
