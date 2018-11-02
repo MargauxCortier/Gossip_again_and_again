@@ -1,8 +1,8 @@
-# Jeudi 1 
+# Jeudi 1
 
 ## Voici le lien vers notre exo :
 
-URL https://gossip-shmossip.herokuapp.com/
+URL https://gossip-sa-mere.herokuapp.com/
 
 ### Une fois pull
 ```

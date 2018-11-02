@@ -11,17 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :anonymous_gossiper %>
-    <%= form.text_field :anonymous_gossiper %>
-  </div>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
+    <div class="field">
+      <%= form.label :'Author :' %>
+      <%= form.text_field :anonymous_gossiper %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="field">
+      <%= form.label :'Content :' %>
+      <%= form.text_field :content %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit class: "btn btn-outline-info btn-sm"%>
+    </div>
+
 <% end %>
